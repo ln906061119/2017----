@@ -3,4 +3,6 @@
 void Init(void)
 {
 	Led_Configuration();
+//	KEY_Configuration();
+//	TIM6_Configuration();
 }

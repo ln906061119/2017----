@@ -27,6 +27,7 @@
 .\objects\buzzer.o: ..\Mylib\can1.h
 .\objects\buzzer.o: ..\Mylib\can2.h
 .\objects\buzzer.o: ..\Mylib\delay.h
+.\objects\buzzer.o: ..\User\main.h
 .\objects\buzzer.o: ..\Mylib\timer.h
 .\objects\buzzer.o: ..\Mylib\usart2.h
 .\objects\buzzer.o: ..\Mylib\usart3.h

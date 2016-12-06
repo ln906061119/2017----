@@ -35,6 +35,13 @@ void EXTI4_IRQHandler(void)
 {
     if(EXTI_GetITStatus(EXTI_Line4))
     {
-        EXTI_ClearITPendingBit(EXTI_Line4);
+			EXTI_ClearITPendingBit(EXTI_Line4);
+			delay_ms(10);//Ïû¶¶
+			if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_4) == 0)
+			{
+				delay_ms(10);//Ïû¶¶
+				LED_GREEN_TOGGLE();
+			}
+			while(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_4)==0);
     }
 }

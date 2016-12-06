@@ -27,6 +27,7 @@
 .\objects\encoder.o: ..\Mylib\can1.h
 .\objects\encoder.o: ..\Mylib\can2.h
 .\objects\encoder.o: ..\Mylib\delay.h
+.\objects\encoder.o: ..\User\main.h
 .\objects\encoder.o: ..\Mylib\timer.h
 .\objects\encoder.o: ..\Mylib\usart2.h
 .\objects\encoder.o: ..\Mylib\usart3.h

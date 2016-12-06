@@ -27,6 +27,7 @@
 .\objects\pwm.o: ..\Mylib\can1.h
 .\objects\pwm.o: ..\Mylib\can2.h
 .\objects\pwm.o: ..\Mylib\delay.h
+.\objects\pwm.o: ..\User\main.h
 .\objects\pwm.o: ..\Mylib\timer.h
 .\objects\pwm.o: ..\Mylib\usart2.h
 .\objects\pwm.o: ..\Mylib\usart3.h

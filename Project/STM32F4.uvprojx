@@ -432,9 +432,9 @@
           <GroupName>Mylib</GroupName>
           <Files>
             <File>
-              <FileName>ad.c</FileName>
+              <FileName>init.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Mylib\ad.c</FilePath>
+              <FilePath>..\Mylib\init.c</FilePath>
             </File>
             <File>
               <FileName>led.c</FileName>
@@ -450,6 +450,16 @@
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Mylib\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mylib\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>ad.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mylib\ad.c</FilePath>
             </File>
             <File>
               <FileName>pwm.c</FileName>
@@ -485,11 +495,6 @@
               <FileName>oled.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Mylib\oled.c</FilePath>
-            </File>
-            <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Mylib\key.c</FilePath>
             </File>
             <File>
               <FileName>encoder.c</FileName>

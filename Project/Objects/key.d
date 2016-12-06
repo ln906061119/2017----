@@ -27,6 +27,7 @@
 .\objects\key.o: ..\Mylib\can1.h
 .\objects\key.o: ..\Mylib\can2.h
 .\objects\key.o: ..\Mylib\delay.h
+.\objects\key.o: ..\User\main.h
 .\objects\key.o: ..\Mylib\timer.h
 .\objects\key.o: ..\Mylib\usart2.h
 .\objects\key.o: ..\Mylib\usart3.h

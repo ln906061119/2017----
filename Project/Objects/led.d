@@ -27,6 +27,7 @@
 .\objects\led.o: ..\Mylib\can1.h
 .\objects\led.o: ..\Mylib\can2.h
 .\objects\led.o: ..\Mylib\delay.h
+.\objects\led.o: ..\User\main.h
 .\objects\led.o: ..\Mylib\timer.h
 .\objects\led.o: ..\Mylib\usart2.h
 .\objects\led.o: ..\Mylib\usart3.h

@@ -27,6 +27,7 @@
 .\objects\timer.o: ..\Mylib\can1.h
 .\objects\timer.o: ..\Mylib\can2.h
 .\objects\timer.o: ..\Mylib\delay.h
+.\objects\timer.o: ..\User\main.h
 .\objects\timer.o: ..\Mylib\timer.h
 .\objects\timer.o: ..\Mylib\usart2.h
 .\objects\timer.o: ..\Mylib\usart3.h
