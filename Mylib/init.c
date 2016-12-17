@@ -6,4 +6,5 @@ void Init(void)
 //	KEY_Configuration();
 //	TIM6_Configuration();
 //	USART3_Configuration();
+	USART2_Configuration();
 }
