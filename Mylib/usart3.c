@@ -1,4 +1,5 @@
 #include "main.h"
+//ok
 
 /*-----USART3_TX-----PB10-----*/
 /*-----USART3_RX-----PB11-----*/
@@ -58,8 +59,10 @@ void USART3_IRQHandler(void)
 {
     if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
     {
+				LED_GREEN_ON();
         USART_ClearITPendingBit(USART3,USART_IT_RXNE);
         Rx_data  = USART3->DR;
-//				while(USART_GetFlagStatus(USART3,USART_FLAG_TXE)==Bit_RESET);
+				USART_SendData(USART3,Rx_data);
+				while(USART_GetFlagStatus(USART3,USART_FLAG_TXE)==Bit_RESET);
     }
 }

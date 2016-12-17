@@ -457,9 +457,14 @@
               <FilePath>..\Mylib\key.c</FilePath>
             </File>
             <File>
-              <FileName>ad.c</FileName>
+              <FileName>can1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Mylib\ad.c</FilePath>
+              <FilePath>..\Mylib\can1.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mylib\usart3.c</FilePath>
             </File>
             <File>
               <FileName>pwm.c</FileName>
@@ -472,9 +477,9 @@
               <FilePath>..\Mylib\timer.c</FilePath>
             </File>
             <File>
-              <FileName>can1.c</FileName>
+              <FileName>ad.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Mylib\can1.c</FilePath>
+              <FilePath>..\Mylib\ad.c</FilePath>
             </File>
             <File>
               <FileName>can2.c</FileName>
@@ -485,11 +490,6 @@
               <FileName>usart2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Mylib\usart2.c</FilePath>
-            </File>
-            <File>
-              <FileName>usart3.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Mylib\usart3.c</FilePath>
             </File>
             <File>
               <FileName>oled.c</FileName>

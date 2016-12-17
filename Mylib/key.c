@@ -1,4 +1,5 @@
 #include "main.h"
+//ok
 
 void KEY_Configuration(void)
 {
