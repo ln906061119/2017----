@@ -7,6 +7,6 @@ int main(void)
 	
 	while(1)
 	{
-		Set_Current(2000);
+//		Set_Current(2000);
 	}
 }

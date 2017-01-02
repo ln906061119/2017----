@@ -25,7 +25,7 @@ void CAN1_Configuration(void)
     GPIO_Init(GPIOA, &gpio);
     
     nvic.NVIC_IRQChannel = CAN1_RX0_IRQn;
-    nvic.NVIC_IRQChannelPreemptionPriority = 2;
+    nvic.NVIC_IRQChannelPreemptionPriority = 0;
     nvic.NVIC_IRQChannelSubPriority = 1;
     nvic.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&nvic);
