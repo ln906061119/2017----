@@ -1,8 +1,8 @@
 #include "main.h"
 
 //CAN1-->底盘电机总线
+//Set_Current is ok
 //RX is ok
-
 
 /*----CAN1_TX-----PA12----*/
 /*----CAN1_RX-----PA11----*/
@@ -96,4 +96,18 @@ void CAN1_RX0_IRQHandler(void)
 					printf("Position_1:%d  Speed_1:%d  \n",Position_1,Speed_1);
 				}
   }
+}
+
+void Set_Current(u32 Current_1)
+{
+    CanTxMsg TxMessage;
+    TxMessage.StdId=0x200;	
+    TxMessage.RTR=CAN_RTR_DATA;		
+    TxMessage.IDE=CAN_Id_Standard;	
+    TxMessage.DLC=8;	
+
+    TxMessage.Data[0]=Current_1>>8;
+    TxMessage.Data[1]=Current_1 & 0xff;
+
+    CAN_Transmit(CAN1, &TxMessage);
 }
