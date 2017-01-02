@@ -7,6 +7,6 @@ int main(void)
 	
 	while(1)
 	{
-//		Set_Current(2000);
+		Scope(10.0,100.0,255.0,1000.9);
 	}
 }

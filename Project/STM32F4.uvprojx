@@ -467,24 +467,24 @@
               <FilePath>..\Mylib\usart2.c</FilePath>
             </File>
             <File>
-              <FileName>can2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Mylib\can2.c</FilePath>
-            </File>
-            <File>
               <FileName>can1.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Mylib\can1.c</FilePath>
             </File>
             <File>
-              <FileName>pwm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Mylib\pwm.c</FilePath>
-            </File>
-            <File>
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Mylib\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>can2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mylib\can2.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mylib\pwm.c</FilePath>
             </File>
             <File>
               <FileName>ad.c</FileName>
@@ -500,6 +500,16 @@
               <FileName>encoder.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Mylib\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mylib\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>visual scope.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mylib\visual scope.c</FilePath>
             </File>
           </Files>
         </Group>

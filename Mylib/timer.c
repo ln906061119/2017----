@@ -1,5 +1,7 @@
 #include "main.h"
 
+int16_t Current_1;
+
 void TIM6_Configuration(void)
 {
     TIM_TimeBaseInitTypeDef  tim;
@@ -24,6 +26,23 @@ void TIM6_Configuration(void)
     TIM_ClearFlag(TIM6, TIM_FLAG_Update);
 }
 
+SPid Current_1_Pid= {
+    0,		// Integrator state
+    0,		// Last position input
+    10000,	// Maximum allowable integrator state
+    -10000,	// Minimum allowable integrator state
+    17.8647,	// proportional gain
+   0.2481,		// integral gain
+    0.019		// derivative gain
+};
+
+void Check_Current(int16_t *current)
+{
+    if(*current >20000)
+        *current=20000;
+    else if(*current <-20000)
+        *current =-20000;
+}
 
 void TIM6_DAC_IRQHandler(void)  
 {
@@ -42,7 +61,16 @@ void TIM6_DAC_IRQHandler(void)
 				if(i2==2)//2ms执行一次，频率500HZ姿态控制
 				{
 					i2=0;
-					Set_Current(2000);
+//			  	Set_Current(1000);
+					Current_1=UpdatePID(&Current_1_Pid,3000-Speed_1,3000);
+					Check_Current (&Current_1);
+					Set_Current(Current_1);
+				}
+				
+				if(ii3==200)	//通过串口显示参数
+				{
+					ii3=0;
+					printf("Position_1:  %d  Speed_1:  %d  \n",Position_1,Speed_1);
 				}
     }
 }

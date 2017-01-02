@@ -7,6 +7,11 @@
 /*----CAN1_TX-----PA12----*/
 /*----CAN1_RX-----PA11----*/
 
+
+int16_t  Position_1 = 0;
+int16_t   Speed_1 = 0;
+
+
 void CAN1_Configuration(void)
 {
     CAN_InitTypeDef        can;
@@ -76,8 +81,7 @@ void CAN1_TX_IRQHandler(void)
     }
 }
 
-int32_t Position_1 = 0;
-u32     Speed_1 = 0;
+
 
 void CAN1_RX0_IRQHandler(void)
 {
@@ -93,12 +97,11 @@ void CAN1_RX0_IRQHandler(void)
 				{
 					Position_1=rx_message.Data[0]<<8|rx_message.Data[1];
 					Speed_1=rx_message.Data[2]<<8|rx_message.Data[3];
-					printf("Position_1:%d  Speed_1:%d  \n",Position_1,Speed_1);
 				}
   }
 }
 
-void Set_Current(u32 Current_1)
+void Set_Current(int16_t Current_1)
 {
     CanTxMsg TxMessage;
     TxMessage.StdId=0x200;	

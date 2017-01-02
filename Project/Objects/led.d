@@ -31,6 +31,8 @@
 .\objects\led.o: ..\Mylib\timer.h
 .\objects\led.o: ..\Mylib\usart2.h
 .\objects\led.o: ..\Mylib\usart3.h
+.\objects\led.o: ..\Mylib\pid.h
+.\objects\led.o: ..\Mylib\visual scope.h
 .\objects\led.o: ..\Mylib\led.h
 .\objects\led.o: ..\Mylib\oled.h
 .\objects\led.o: ..\Mylib\buzzer.h

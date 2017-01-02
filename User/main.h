@@ -13,6 +13,8 @@
 #include "timer.h"
 #include "usart2.h"
 #include "usart3.h"
+#include "pid.h"
+#include "visual scope.h"
 
 #include "led.h"
 #include "oled.h"

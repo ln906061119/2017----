@@ -15,6 +15,8 @@
 ".\objects\ad.o"
 ".\objects\oled.o"
 ".\objects\encoder.o"
+".\objects\pid.o"
+".\objects\visual scope.o"
 ".\objects\misc.o"
 ".\objects\stm32f4xx_tim.o"
 ".\objects\stm32f4xx_adc.o"

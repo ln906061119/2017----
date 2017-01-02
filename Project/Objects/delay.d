@@ -31,6 +31,8 @@
 .\objects\delay.o: ..\Mylib\timer.h
 .\objects\delay.o: ..\Mylib\usart2.h
 .\objects\delay.o: ..\Mylib\usart3.h
+.\objects\delay.o: ..\Mylib\pid.h
+.\objects\delay.o: ..\Mylib\visual scope.h
 .\objects\delay.o: ..\Mylib\led.h
 .\objects\delay.o: ..\Mylib\oled.h
 .\objects\delay.o: ..\Mylib\buzzer.h
