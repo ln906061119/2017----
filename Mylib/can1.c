@@ -1,5 +1,9 @@
 #include "main.h"
 
+//CAN1-->底盘电机总线
+//RX is ok
+
+
 /*----CAN1_TX-----PA12----*/
 /*----CAN1_RX-----PA11----*/
 
@@ -63,6 +67,7 @@ void CAN1_Configuration(void)
     CAN_ITConfig(CAN1,CAN_IT_TME,ENABLE); 
 }
 
+
 void CAN1_TX_IRQHandler(void)
 {
     if (CAN_GetITStatus(CAN1,CAN_IT_TME)!= RESET) 
@@ -71,13 +76,24 @@ void CAN1_TX_IRQHandler(void)
     }
 }
 
+int32_t Position_1 = 0;
+u32     Speed_1 = 0;
+
 void CAN1_RX0_IRQHandler(void)
 {
     CanRxMsg rx_message;
     
     if (CAN_GetITStatus(CAN1,CAN_IT_FMP0)!= RESET)
 	{
+		
         CAN_ClearITPendingBit(CAN1, CAN_IT_FMP0);
         CAN_Receive(CAN1, CAN_FIFO0, &rx_message);
-    }
+				
+				if(rx_message.StdId == 0x201)
+				{
+					Position_1=rx_message.Data[0]<<8|rx_message.Data[1];
+					Speed_1=rx_message.Data[2]<<8|rx_message.Data[3];
+					printf("Position_1:%d  Speed_1:%d  \n",Position_1,Speed_1);
+				}
+  }
 }

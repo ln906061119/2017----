@@ -25,9 +25,9 @@
 .\objects\oled.o: ..\Mylib\pwm.h
 .\objects\oled.o: ..\Mylib\key.h
 .\objects\oled.o: ..\Mylib\can1.h
+.\objects\oled.o: ..\User\main.h
 .\objects\oled.o: ..\Mylib\can2.h
 .\objects\oled.o: ..\Mylib\delay.h
-.\objects\oled.o: ..\User\main.h
 .\objects\oled.o: ..\Mylib\timer.h
 .\objects\oled.o: ..\Mylib\usart2.h
 .\objects\oled.o: ..\Mylib\usart3.h

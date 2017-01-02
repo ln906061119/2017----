@@ -5,7 +5,7 @@
 //for D-BUS
 
 unsigned char sbus_rx_buffer[25];
-static RC_Ctl_t RC_Ctl;
+RC_Ctl_t RC_Ctl;
 
 void USART2_Configuration(void)
 {
@@ -66,10 +66,13 @@ void USART2_Configuration(void)
     DMA_Cmd(DMA1_Stream5,ENABLE);
 }
 
+CanTxMsg TxMessage;//CAN总线发出数据
+
 void DMA1_Stream5_IRQHandler(void)
 {
     if(DMA_GetITStatus(DMA1_Stream5, DMA_IT_TCIF5))
     {
+				LED_RED_ON();
         DMA_ClearFlag(DMA1_Stream5, DMA_FLAG_TCIF5);
         DMA_ClearITPendingBit(DMA1_Stream5, DMA_IT_TCIF5);
 			
@@ -86,14 +89,63 @@ void DMA1_Stream5_IRQHandler(void)
 				RC_Ctl.mouse.press_l = sbus_rx_buffer[12]; //!< Mouse Left Is Press ?
 				RC_Ctl.mouse.press_r = sbus_rx_buffer[13]; //!< Mouse Right Is Press ?
 				RC_Ctl.key.v = sbus_rx_buffer[14] | (sbus_rx_buffer[15] << 8); //!< KeyBoard value
-    }
-		
-		if(RC_Ctl.rc.ch0 > 1024)
-			{
-				LED_GREEN_ON();
-			}
-			else
-			{
-				LED_GREEN_OFF();
-			}
+//		if(RC_Ctl.rc.ch0 > 1024)
+//			{
+//				LED_GREEN_ON();
+//			}
+//			else
+//			{
+//				LED_GREEN_OFF();
+//			}
+
+//向云台发送四个通道信息
+				TxMessage.StdId=0x402;//标准标识符为0x402
+				TxMessage.RTR=CAN_RTR_DATA;;//消息类型为数据帧，一帧8位
+				TxMessage.IDE=CAN_Id_Standard;//不使用扩展标识符
+				TxMessage.DLC=8;//发送8字节信息
+				
+				TxMessage.Data[0]=RC_Ctl .rc.ch0 & 0xff;
+        TxMessage.Data[1]=RC_Ctl .rc.ch0>>8;
+
+        TxMessage.Data[2]=RC_Ctl .rc.ch1 & 0xff;
+        TxMessage.Data[3]=RC_Ctl .rc.ch1>>8;
+
+        TxMessage.Data[4]=RC_Ctl .rc.ch2 & 0xff;
+        TxMessage.Data[5]=RC_Ctl .rc.ch2>>8;
+
+        TxMessage.Data[6]=RC_Ctl .rc.ch3 & 0xff;
+        TxMessage.Data[7]=RC_Ctl .rc.ch3>>8;
+				
+				CAN_Transmit(CAN2,&TxMessage);
+	//向云台发送鼠标速度和S1 S2值
+        TxMessage.StdId=0x403;			// 标准标识符为0x403
+        TxMessage.RTR=CAN_RTR_DATA;		// 消息类型为数据帧，一帧8位
+        TxMessage.IDE=CAN_Id_Standard;	// 不使用扩展标识符
+        TxMessage.DLC=8;				// 发送8字节信息
+
+        TxMessage.Data[0]=RC_Ctl.mouse.x & 0xff;
+        TxMessage.Data[1]=RC_Ctl.mouse.x>>8;
+
+        TxMessage.Data[2]=RC_Ctl.mouse.y & 0xff;
+        TxMessage.Data[3]=RC_Ctl.mouse.y>>8;
+
+        TxMessage.Data[4]=RC_Ctl.mouse.press_l;
+        TxMessage.Data[5]=RC_Ctl.mouse.press_r;
+
+        TxMessage.Data[6]=RC_Ctl.rc.s1;
+        TxMessage.Data[7]=RC_Ctl.rc.s2;
+
+        CAN_Transmit(CAN2, &TxMessage);
+
+//向云台发送鼠标速度和S1 S2值
+        TxMessage.StdId=0x404;			// 标准标识符为0x404
+        TxMessage.RTR=CAN_RTR_DATA;		// 消息类型为数据帧，一帧8位
+        TxMessage.IDE=CAN_Id_Standard;	// 不使用扩展标识符
+        TxMessage.DLC=8;				// 发送8字节信息
+
+        TxMessage.Data[0]=RC_Ctl.key.v & 0xff;
+        TxMessage.Data[1]=RC_Ctl.key.v>>8;
+				
+        CAN_Transmit(CAN2, &TxMessage);
+		}
 }

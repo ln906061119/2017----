@@ -39,6 +39,8 @@ void USART3_Configuration(void)
     nvic.NVIC_IRQChannelSubPriority = 3;
     nvic.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&nvic);
+		
+		printf("usart3 is ok");
 }
 
 void USART3_SendChar(unsigned char b)
@@ -59,7 +61,7 @@ void USART3_IRQHandler(void)
 {
     if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
     {
-				LED_GREEN_ON();
+//				LED_GREEN_ON();
         USART_ClearITPendingBit(USART3,USART_IT_RXNE);
         Rx_data  = USART3->DR;
 				USART_SendData(USART3,Rx_data);
