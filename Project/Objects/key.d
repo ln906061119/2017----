@@ -29,9 +29,9 @@
 .\objects\key.o: ..\Mylib\can2.h
 .\objects\key.o: ..\Mylib\delay.h
 .\objects\key.o: ..\Mylib\timer.h
+.\objects\key.o: ..\Mylib\pid.h
 .\objects\key.o: ..\Mylib\usart2.h
 .\objects\key.o: ..\Mylib\usart3.h
-.\objects\key.o: ..\Mylib\pid.h
 .\objects\key.o: ..\Mylib\visual scope.h
 .\objects\key.o: ..\Mylib\led.h
 .\objects\key.o: ..\Mylib\oled.h

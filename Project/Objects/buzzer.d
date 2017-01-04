@@ -29,9 +29,9 @@
 .\objects\buzzer.o: ..\Mylib\can2.h
 .\objects\buzzer.o: ..\Mylib\delay.h
 .\objects\buzzer.o: ..\Mylib\timer.h
+.\objects\buzzer.o: ..\Mylib\pid.h
 .\objects\buzzer.o: ..\Mylib\usart2.h
 .\objects\buzzer.o: ..\Mylib\usart3.h
-.\objects\buzzer.o: ..\Mylib\pid.h
 .\objects\buzzer.o: ..\Mylib\visual scope.h
 .\objects\buzzer.o: ..\Mylib\led.h
 .\objects\buzzer.o: ..\Mylib\oled.h

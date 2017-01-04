@@ -76,6 +76,10 @@ void DMA1_Stream5_IRQHandler(void)
         DMA_ClearFlag(DMA1_Stream5, DMA_FLAG_TCIF5);
         DMA_ClearITPendingBit(DMA1_Stream5, DMA_IT_TCIF5);
 			
+			//*******************************************************************************************//
+			//**********************通道0~3最大值1684；中间值1024；最小值364*****************************//
+			//**********************S1、S2值为:   1上；  2下；  3中**************************************//
+			//*******************************************************************************************//
 				RC_Ctl.rc.ch0 = (sbus_rx_buffer[0]| (sbus_rx_buffer[1] << 8)) & 0x07ff; //!< Channel 0
 				RC_Ctl.rc.ch1 = ((sbus_rx_buffer[1] >> 3) | (sbus_rx_buffer[2] << 5)) & 0x07ff; //!< Channel 1
 				RC_Ctl.rc.ch2 = ((sbus_rx_buffer[2] >> 6) | (sbus_rx_buffer[3] << 2) | //!< Channel 2
@@ -89,15 +93,25 @@ void DMA1_Stream5_IRQHandler(void)
 				RC_Ctl.mouse.press_l = sbus_rx_buffer[12]; //!< Mouse Left Is Press ?
 				RC_Ctl.mouse.press_r = sbus_rx_buffer[13]; //!< Mouse Right Is Press ?
 				RC_Ctl.key.v = sbus_rx_buffer[14] | (sbus_rx_buffer[15] << 8); //!< KeyBoard value
-//		if(RC_Ctl.rc.ch0 > 1024)
-//			{
-//				LED_GREEN_ON();
-//			}
-//			else
-//			{
-//				LED_GREEN_OFF();
-//			}
 
+//通过遥控器调节PID参数
+						Current_1_Pid.pGain +=(float)( RC_Ctl.rc.ch0-1024)*0.00001f;
+            if(Current_1_Pid.pGain<0) Current_1_Pid.pGain=0;
+
+            Current_1_Pid.iGain +=(float)( RC_Ctl.rc.ch1-1024)*0.00001f;
+            if(Current_1_Pid.iGain<0) Current_1_Pid.iGain=0;
+
+//遥控器设定底盘电机转速
+						if(RC_Ctl.rc.s1==1)
+						{
+							SetSpeed_1=6000;
+						}
+						else
+						{
+							SetSpeed_1=0;
+						}
+//						SetSpeed_1=(RC_Ctl.rc.ch3-1024)*14.545;
+			
 //向云台发送四个通道信息
 				TxMessage.StdId=0x402;//标准标识符为0x402
 				TxMessage.RTR=CAN_RTR_DATA;;//消息类型为数据帧，一帧8位

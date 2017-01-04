@@ -29,9 +29,9 @@
 .\objects\pwm.o: ..\Mylib\can2.h
 .\objects\pwm.o: ..\Mylib\delay.h
 .\objects\pwm.o: ..\Mylib\timer.h
+.\objects\pwm.o: ..\Mylib\pid.h
 .\objects\pwm.o: ..\Mylib\usart2.h
 .\objects\pwm.o: ..\Mylib\usart3.h
-.\objects\pwm.o: ..\Mylib\pid.h
 .\objects\pwm.o: ..\Mylib\visual scope.h
 .\objects\pwm.o: ..\Mylib\led.h
 .\objects\pwm.o: ..\Mylib\oled.h

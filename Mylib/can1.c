@@ -9,7 +9,7 @@
 
 
 int16_t  Position_1 = 0;
-int16_t   Speed_1 = 0;
+int16_t   Speed_1 = 0;//prm
 
 
 void CAN1_Configuration(void)
@@ -95,13 +95,13 @@ void CAN1_RX0_IRQHandler(void)
 				
 				if(rx_message.StdId == 0x201)
 				{
-					Position_1=rx_message.Data[0]<<8|rx_message.Data[1];
-					Speed_1=rx_message.Data[2]<<8|rx_message.Data[3];
+					Position_1=rx_message.Data[0]<<8|rx_message.Data[1];//0~8191
+					Speed_1=rx_message.Data[2]<<8|rx_message.Data[3];//prm
 				}
   }
 }
 
-void Set_Current(int16_t Current_1)
+void Set_Current(int16_t Current_1)//-32768~32768
 {
     CanTxMsg TxMessage;
     TxMessage.StdId=0x200;	

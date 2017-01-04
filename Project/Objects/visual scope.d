@@ -29,9 +29,9 @@
 .\objects\visual scope.o: ..\Mylib\can2.h
 .\objects\visual scope.o: ..\Mylib\delay.h
 .\objects\visual scope.o: ..\Mylib\timer.h
+.\objects\visual scope.o: ..\Mylib\pid.h
 .\objects\visual scope.o: ..\Mylib\usart2.h
 .\objects\visual scope.o: ..\Mylib\usart3.h
-.\objects\visual scope.o: ..\Mylib\pid.h
 .\objects\visual scope.o: ..\Mylib\visual scope.h
 .\objects\visual scope.o: ..\Mylib\led.h
 .\objects\visual scope.o: ..\Mylib\oled.h
